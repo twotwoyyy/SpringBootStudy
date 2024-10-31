@@ -30,6 +30,12 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		<!-- elasticsearch -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+		</dependency>
+
 	<!-- tymeleaf : include -->
 		<dependency>
 		    <groupId>nz.net.ultraq.thymeleaf</groupId>
