@@ -94,6 +94,31 @@ public class FoodHouseRestController {
 			map.put("totalpage", totalpage);
 			map.put("startPage", startPage);
 			map.put("endPage", endPage);
+			// {} => []
+			/*
+			 *	return 
+			 *    => Map ==> {} 여러 개를 동시에 모아서 전송
+			 *    => List ==> [{},{},{}...]
+			 *    => VO ==> {}
+			 *    
+			 *    {
+				  "totalpage": 641,
+				  "startPage": 1,
+				  "fList": [
+				    {
+				      "theme": "가족외식 , 어른과 함께라면 , 술 마시는 친구와 함께 , 일상데이트 , 점심식사 , 삼겹살 , 돼지생구이 , 흑돼지 , 맥주 , 소주 , 제주올레 걷기축제",
+				      "hit": 473,
+				      "poster": "/restaurant/restimg/000/menuimg/h6015304.jpg",
+				      "fno": 1,
+				      "score": 4.7,
+				      "jjimcount": 2,
+				      "name": "화로향 ",
+				      "type": "한식",
+				      "content": "제주공항 인근 건입동 '흑돼지 거리'에 자리 잡은 인기있는 돼지고기구이 전문점이다. 브라운과 블랙색상을 조화시켜 꾸민 실내에는 좌식 자리와 입식 자리가 고루 마련되어 있으며 전체적으로 깔끔하면서 넓은 홀을 가지고 있다. 흑돼지 거리에는 흑돼지 맛집들이 모여있는데 그 중에서도 화로향이 으뜸이라고 한다. 제주 화로향은 제주도산 친환경 무항생제를 고기를 사용한다고 하는데 무항생돼지란 돼지의 몸속뿐아니라 분뇨에서도 항생제 잔류가 없어 인체에 무해한 돼지라고 한다. 제주도여행을 간다면 화로향에서 제주산 무항생제 흑돼지의 참맛을 느껴보는 것이 어떨까."
+				    },
+				    
+				    => 따라서 food_list: {}로 받아야 한다 
+			 */
 			
 		}catch(Exception ex) {
 			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
