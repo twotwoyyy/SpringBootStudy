@@ -38,9 +38,10 @@ public class BoardRestController {
 				rb.setRegdate(day);
 			}
 			int totalpage=(int)(Math.ceil(bDao.count()/10.0));
-			map.put("list", list);
+			map.put("bList", list);
 			map.put("curpage", page);
 			map.put("totalpage", totalpage);
+			map.put("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 		}catch(Exception ex) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -55,7 +56,6 @@ public class BoardRestController {
 			ReactBoardEntity _vo=bDao.save(vo);
 			map.put("vo", _vo);
 			map.put("msg", "yes"); 
-			map.put("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 		}catch(Exception ex) {
 			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
